@@ -1,0 +1,121 @@
+/* Roboto */
+@font-face {
+  font-family: "roboto";
+  font-weight: 100;
+  src: local(※), url("font/Roboto-Light.woff") format("woff"),
+    url("font/Roboto-Light.woff2") format("woff2"),
+    url("font/Roboto-Light.ttf") format("TrueType");
+}
+@font-face {
+  font-family: "roboto";
+  font-weight: 400;
+  src: local(※), url("font/Roboto-Regular.woff") format("woff"),
+    url("font/Roboto-Regular.woff2") format("woff2"),
+    url("font/Roboto-Regular.ttf") format("TrueType");
+}
+@font-face {
+  font-family: "roboto";
+  font-weight: 600;
+  src: local(※), url("font/Roboto-Medium.woff") format("woff"),
+    url("font/Roboto-Medium.woff2") format("woff2"),
+    url("font/Roboto-Medium.ttf") format("TrueType");
+}
+@font-face {
+  font-family: "roboto";
+  font-weight: 800;
+  src: local(※), url("font/Roboto-Bold.woff") format("woff"),
+    url("font/Roboto-Bold.woff2") format("woff2"),
+    url("font/Roboto-Bold.ttf") format("TrueType");
+}
+
+// media query
+$break-small: 320px;
+$break-medium: 768px;
+$break-large: 1024px;
+$break-xlarge: 1200px;
+
+@mixin respond-to($media) {
+  // ~ small Phone(P)
+  @if $media== "small" {
+    @media only screen and (max-width: $break-small) {
+      @content;
+    }
+  }
+
+  // ~ Phone(P)
+  @else if $media== "medium" {
+    @media only screen and (max-width: $break-medium - 1) {
+      @content;
+    }
+  }
+
+  // Phone(P) ~ Tablet(P)
+  @else if $media== "small-medium" {
+    @media only screen and (min-width: $break-small) and (max-width: $break-medium - 1) {
+      @content;
+    }
+  }
+
+  // Tablet(P) ~ Tablet(P)
+  @else if $media== "medium-large" {
+    @media only screen and (min-width: $break-medium) and (max-width: $break-large - 1) {
+      @content;
+    }
+  }
+
+  // ~ Tablet(L)/PC
+  @else if $media== "large-1" {
+    @media only screen and (max-width: $break-large - 1) {
+      @content;
+    }
+  }
+  // ~ Tablet(L)/PC
+  @else if $media== "large" {
+    @media only screen and (max-width: $break-large) {
+      @content;
+    }
+  }
+
+  // Tablet(L)/PC ~
+  @else if $media== "large-over" {
+    @media only screen and (min-width: $break-large) {
+      @content;
+    }
+  }
+
+  // Tablet(L)/PC ~ PC2
+  @else if $media== "large-xlarge" {
+    @media only screen and (min-width: $break-large) and (max-width: $break-xlarge - 1) {
+      @content;
+    }
+  }
+
+  // ~ PC2
+  @else if $media== "xlarge" {
+    @media only screen and (max-width: $break-xlarge - 1) {
+      @content;
+    }
+  }
+}
+
+@mixin large {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@mixin max-large {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+// float clear
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+$color-1: #0a6c98;
+$color-2: #333;
