@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
 import BoardListSearch from "./board-list-search";
 import BoardListPaging from "./board-list-paging";
 import BoardBtns from "./board-btns";
@@ -17,7 +16,7 @@ const BoardList = () => {
     <div className="inner">
       {/* <h2>Board List</h2> */}
       <BoardListSearch />
-			<BoardListNormal users={users} />
+			<BoardListNormal users={users} setUsers={setUsers} />
 			<BoardListPaging />
 			<BoardBtns />
     </div>
